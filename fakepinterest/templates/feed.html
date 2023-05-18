@@ -1,0 +1,24 @@
+{% extends "homepage.html" %}
+
+
+{% block body %}
+<!-- incluindo a barra de navegação -->
+{% include "navbar.html" %}
+
+  <body>
+    <div class="container">
+
+
+      <div class="conteudo">
+        <!-- para cada foto dentro de fotos, exibe aquela foto -->
+        <!-- usando for do Python com Flask -->
+          {% for foto in fotos %}
+            <a href="{{ url_for('perfil', id_usuario=foto.id_usuario) }}" class="bloco-imagem">
+              <img src="{{ url_for('static', filename='fotos_posts/{}'.format(foto.imagem)) }}" />
+            </a>
+          {% endfor %}
+      </div>
+    </div>
+  </body>
+
+{% endblock %}
